@@ -3,7 +3,7 @@ package com.bridgelabz;
 import java.sql.*;
 
 public class EmployeeDatabase {
-    public  static Connection getConnection() {
+    public static Connection getConnection() {
         Connection conn = null;
         try {
             String JDBC_URL = "jdbc:mysql://localhost:3306/database_employee?useSSL=false";
@@ -21,21 +21,34 @@ public class EmployeeDatabase {
     }
 
     // Insert data
-    public  static  void insert() {
-        String sql="insert into employee(id,name,date)"+
+    public static void insert() {
+        String sql = "insert into employee(id,name,date)" +
                 "values('4','Jayant','2022-07-03')";
 
-        Connection conn =getConnection();
+        Connection conn = getConnection();
         try {
-            Statement st=conn.createStatement();
-            int count =st.executeUpdate(sql);
-            System.out.println( "Insert "+count+" records!" );
+            Statement st = conn.createStatement();
+            int count = st.executeUpdate(sql);
+            System.out.println("Insert " + count + " records!");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
+    // delete data
+    public static void delete() {
+        String sql = "delete from employee where id=3";
+        Connection conn = getConnection();
+        try {
+            Statement st = conn.createStatement();
+            int count = st.executeUpdate(sql);
+            System.out.println("Deleted " + count + " records!");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("welcome to employee-jdbc program");
