@@ -23,7 +23,7 @@ public class EmployeeDatabase {
     // Insert data
     public  static  void insert() {
         String sql="insert into employee(id,name,date)"+
-                "values('7','Jayant','2022-07-15')";
+                "values('4','Jayant','2022-07-03')";
 
         Connection conn =getConnection();
         try {
@@ -36,24 +36,10 @@ public class EmployeeDatabase {
         }
     }
 
-    // delete data
-    public  static  void delete() {
-        String sql="delete from employee where id=3";
-        Connection conn =getConnection();
-        try {
-            Statement st=conn.createStatement();
-            int count =st.executeUpdate(sql);
-            System.out.println( "Deleted "+count+" records!" );
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
     public static void main(String[] args) {
         System.out.println("welcome to employee-jdbc program");
         EmployeeDatabase jdbc = new EmployeeDatabase();
         jdbc.insert();
-        jdbc.delete();
     }
 }
